@@ -1,0 +1,12 @@
+{
+  "intents": [
+    {"tag": "help", "patterns": ["помощ", "help"], "description": "Показва наличните команди"},
+    {"tag": "exit", "patterns": ["изход", "exit"], "description": "Изход от чатбота"},
+    {"tag": "add_club", "patterns": ["добави клуб <име>"], "description": "Добавя нов футболен клуб"},
+    {"tag": "list_clubs", "patterns": ["покажи всички клубове", "list clubs"], "description": "Показва всички клубове"},
+    {"tag": "delete_club", "patterns": ["изтрий клуб <име>"], "description": "Изтрива клуб по име"},
+    {"tag": "add_player", "patterns": ["добави играч <име> към клуб <име на клуб>"], "description": "Добавя нов играч"},
+    {"tag": "delete_player", "patterns": ["изтрий играч <име>"], "description": "Изтрива играч по име"},
+    {"tag": "list_players", "patterns": ["покажи всички играчи", "list players"], "description": "Показва всички играчи"}
+  ]
+}
