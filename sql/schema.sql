@@ -6,9 +6,15 @@ CREATE TABLE IF NOT EXISTS clubs (
 
 CREATE TABLE IF NOT EXISTS players (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    name TEXT NOT NULL,
-    birthdate TEXT,
+    full_name TEXT NOT NULL,
+    birth_date TEXT,
+    nationality TEXT,
+    position TEXT,
+    number INTEGER,
+    status TEXT DEFAULT 'active',
     club_id INTEGER,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+
     FOREIGN KEY (club_id) REFERENCES clubs(id) ON DELETE SET NULL
 );
+
