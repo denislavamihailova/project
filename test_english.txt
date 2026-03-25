@@ -1,0 +1,4 @@
+add club Liverpool
+list clubs
+exit
+

@@ -5,8 +5,11 @@
     {"tag": "add_club", "patterns": ["добави клуб <име>"], "description": "Добавя нов футболен клуб"},
     {"tag": "list_clubs", "patterns": ["покажи всички клубове", "list clubs"], "description": "Показва всички клубове"},
     {"tag": "delete_club", "patterns": ["изтрий клуб <име>"], "description": "Изтрива клуб по име"},
-    {"tag": "add_player", "patterns": ["добави играч <име> към клуб <име на клуб>"], "description": "Добавя нов играч"},
+    {"tag": "add_player", "patterns": ["добави играч <име> в <клуб> позиция <GK|DF|MF|FW> номер <номер>"], "description": "Добавя нов играч"},
     {"tag": "delete_player", "patterns": ["изтрий играч <име>"], "description": "Изтрива играч по име"},
-    {"tag": "list_players", "patterns": ["покажи всички играчи", "list players"], "description": "Показва всички играчи"}
+    {"tag": "list_players", "patterns": ["покажи играчи на <клуб>"], "description": "Показва всички играчи"},
+    {"tag": "transfer_player", "patterns": ["трансфер <име> от <клуб> в <клуб> <дата>"], "description": "Регистрира трансфер на играч"},
+    {"tag": "show_transfers_player", "patterns": ["покажи трансфери на <име или клуб>"], "description": "Показва трансфери на играч или клуб"},
+    {"tag": "update_player_number", "patterns": ["смени номер на <име> на <номер>"], "description": "Променя номера на играча"}
   ]
 }

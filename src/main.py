@@ -2,6 +2,21 @@ from pathlib import Path
 from db import execute_script
 from chatbot import parse_command, handle_intent
 from datetime import datetime
+import sys
+import os
+
+# Set UTF-8 encoding for Windows console
+os.system('chcp 65001 > nul')
+
+# Ensure UTF-8 encoding for input/output
+if sys.stdout.encoding.lower() != 'utf-8':
+    import io
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
+if sys.stdin.encoding.lower() != 'utf-8':
+    import io
+    sys.stdin = io.TextIOWrapper(sys.stdin.buffer, encoding='utf-8')
+
+sys.path.append(str(Path(__file__).resolve().parent))
 
 # --- 1️⃣ Зареждаме schema.sql ---
 BASE_DIR = Path(__file__).resolve().parent
@@ -26,7 +41,7 @@ def main():
 
     while True:
         user_input = input(">> ")
-
+        
         intent, param = parse_command(user_input)
         response = handle_intent(intent, param)
 
