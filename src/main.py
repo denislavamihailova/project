@@ -27,12 +27,13 @@ with open(SCHEMA_PATH, "r", encoding="utf-8") as f:
 
 # --- 2️⃣ Създаваме таблиците (clubs + players) ---
 execute_script(schema)
-print("✅ Таблиците са създадени (clubs + players)")
+print("✅ Таблиците са създадени (clubs + players + leagues + league_teams + matches)")
 
 # --- 3️⃣ Функция за логване ---
-def log_command(user_input, response):
+def log_command(user_input, intent, response):
+    status = "OK" if not response.startswith("❌") else "ERROR"
     with open("commands.log", "a", encoding="utf-8") as f:
-        f.write(f"{datetime.now()} | {user_input} | {response}\n")
+        f.write(f"{datetime.now()} | {user_input} | {intent} | {status} | {response}\n")
 
 # --- 4️⃣ Chat loop ---
 def main():
@@ -46,7 +47,7 @@ def main():
         response = handle_intent(intent, param)
 
         print(response)
-        log_command(user_input, response)
+        log_command(user_input, intent, response)
 
         if intent == "exit":
             break

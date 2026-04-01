@@ -32,3 +32,34 @@ CREATE TABLE IF NOT EXISTS transfers (
     FOREIGN KEY (to_club_id) REFERENCES clubs(id)
 );
 
+CREATE TABLE IF NOT EXISTS leagues (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    season TEXT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    UNIQUE(name, season)
+);
+
+CREATE TABLE IF NOT EXISTS league_teams (
+    league_id INTEGER NOT NULL,
+    club_id INTEGER NOT NULL,
+    joined_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (league_id, club_id),
+    FOREIGN KEY (league_id) REFERENCES leagues(id) ON DELETE CASCADE,
+    FOREIGN KEY (club_id) REFERENCES clubs(id) ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS matches (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    league_id INTEGER NOT NULL,
+    round_no INTEGER NOT NULL,
+    home_club_id INTEGER NOT NULL,
+    away_club_id INTEGER NOT NULL,
+    match_date TEXT,
+    home_goals INTEGER,
+    away_goals INTEGER,
+    FOREIGN KEY (league_id) REFERENCES leagues(id) ON DELETE CASCADE,
+    FOREIGN KEY (home_club_id) REFERENCES clubs(id),
+    FOREIGN KEY (away_club_id) REFERENCES clubs(id),
+    CHECK (home_club_id != away_club_id)
+);

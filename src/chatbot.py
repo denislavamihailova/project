@@ -2,6 +2,10 @@ import re
 from players_service import add_player, get_players_by_club, update_player_number, delete_player
 from clubs_service import add_club, get_all_clubs, delete_club
 from services.transfers_service import transfer_player, list_transfers_by_player, list_transfers_by_club
+from services.leagues_service import (
+    create_league_service, add_team_to_league_service, remove_team_from_league_service,
+    show_teams_in_league_service, generate_schedule_service
+)
 
 
 def parse_command(user_input):
@@ -103,6 +107,46 @@ def parse_command(user_input):
         return "delete_club", match.group(1)
 
     # -----------------------------
+    # ➤ Създай лига
+    # Формат: създай лига <име> <сезон>
+    # -----------------------------
+    match = re.match(r"създай лига (.+?) (.+)", user_input, re.IGNORECASE)
+    if match:
+        return "create_league", (match.group(1), match.group(2))
+
+    # -----------------------------
+    # ➤ Добави отбор в лига
+    # Формат: добави отбор <клуб> в лига <име> <сезон>
+    # -----------------------------
+    match = re.match(r"добави отбор (.+?) в лига (.+?) (.+)", user_input, re.IGNORECASE)
+    if match:
+        return "add_team_to_league", (match.group(1), match.group(2), match.group(3))
+
+    # -----------------------------
+    # ➤ Премахни отбор от лига
+    # Формат: премахни отбор <клуб> от лига <име> <сезон>
+    # -----------------------------
+    match = re.match(r"премахни отбор (.+?) от лига (.+?) (.+)", user_input, re.IGNORECASE)
+    if match:
+        return "remove_team_from_league", (match.group(1), match.group(2), match.group(3))
+
+    # -----------------------------
+    # ➤ Покажи отбори в лига
+    # Формат: покажи отбори в лига <име> <сезон>
+    # -----------------------------
+    match = re.match(r"покажи отбори в лига (.+?) (.+)", user_input, re.IGNORECASE)
+    if match:
+        return "show_teams_in_league", (match.group(1), match.group(2))
+
+    # -----------------------------
+    # ➤ Генерирай програма
+    # Формат: генерирай програма <име> <сезон>
+    # -----------------------------
+    match = re.match(r"генерирай програма (.+?) (.+)", user_input, re.IGNORECASE)
+    if match:
+        return "generate_schedule", (match.group(1), match.group(2))
+
+    # -----------------------------
     # ➤ Помощ
     # -----------------------------
     if user_input.lower() in ["помощ", "help"]:
@@ -143,6 +187,21 @@ def handle_intent(intent, param):
     if intent == "delete_club":
         return delete_club(param)
 
+    if intent == "create_league":
+        return create_league_service(*param)
+
+    if intent == "add_team_to_league":
+        return add_team_to_league_service(*param)
+
+    if intent == "remove_team_from_league":
+        return remove_team_from_league_service(*param)
+
+    if intent == "show_teams_in_league":
+        return show_teams_in_league_service(*param)
+
+    if intent == "generate_schedule":
+        return generate_schedule_service(*param)
+
     if intent == "help":
         return (
             "📋 Достъпни команди:\n"
@@ -158,6 +217,12 @@ def handle_intent(intent, param):
             "--- Трансфери ---\n"
             "- трансфер <име играч> от <клуб> в <клуб> <дата YYYY-MM-DD>\n"
             "- покажи трансфери на <име играч или клуб>\n"
+            "--- Лиги ---\n"
+            "- създай лига <име> <сезон>\n"
+            "- добави отбор <клуб> в лига <име> <сезон>\n"
+            "- премахни отбор <клуб> от лига <име> <сезон>\n"
+            "- покажи отбори в лига <име> <сезон>\n"
+            "- генерирай програма <име> <сезон>\n"
             "--- Система ---\n"
             "- помощ / help\n"
             "- изход / exit"
