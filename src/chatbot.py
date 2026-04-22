@@ -6,6 +6,9 @@ from services.leagues_service import (
     create_league_service, add_team_to_league_service, remove_team_from_league_service,
     show_teams_in_league_service, generate_schedule_service
 )
+from services.matches_service import (
+    show_round_schedule, record_match_score, add_goal, add_card, set_current_match, show_match_events
+)
 
 
 def parse_command(user_input):
@@ -147,6 +150,56 @@ def parse_command(user_input):
         return "generate_schedule", (match.group(1), match.group(2))
 
     # -----------------------------
+    # ➤ Покажи кръг
+    # Формат: Покажи кръг <N> <лига> <сезон>
+    # -----------------------------
+    match = re.match(r"покажи кръг (\d+) (.+?) (.+)", user_input, re.IGNORECASE)
+    if match:
+        return "show_round", (int(match.group(1)), match.group(2), match.group(3))
+
+    # -----------------------------
+    # ➤ Резултат
+    # Формат: Резултат <Домакин>-<Гост> <X>:<Y> запиши
+    # -----------------------------
+    match = re.match(r"резултат (.+?)-(.+?) (\d+):(\d+) запиши", user_input, re.IGNORECASE)
+    if match:
+        return "record_score", (match.group(1), match.group(2), match.group(3), match.group(4))
+
+    # -----------------------------
+    # ➤ Гол
+    # Формат: Гол <Играч> <Отбор> <минута> минута
+    # -----------------------------
+    match = re.match(r"гол (.+?) (.+?) (\d+) минута", user_input, re.IGNORECASE)
+    if match:
+        return "add_goal", (match.group(1), match.group(2), match.group(3))
+
+    # -----------------------------
+    # ➤ Избери мач
+    # Формат: Избери мач <match_id>
+    # -----------------------------
+    match = re.match(r"избери мач (\d+)", user_input, re.IGNORECASE)
+    if match:
+        return "select_match", int(match.group(1))
+
+    # -----------------------------
+    # ➤ Картон
+    # Формат: Картон <Играч> <Отбор> <Y/R> <минута>
+    # -----------------------------
+    match = re.match(r"картон (.+?) (.+?) ([YR]) (\d+)", user_input, re.IGNORECASE)
+    if match:
+        return "add_card", (match.group(1), match.group(2), match.group(3), match.group(4))
+
+    # -----------------------------
+    # ➤ Покажи събития
+    # Формат: Покажи събития или Покажи събития <match_id>
+    # -----------------------------
+    if user_input.lower() == "покажи събития":
+        return "show_events", None
+    match = re.match(r"покажи събития (\d+)", user_input, re.IGNORECASE)
+    if match:
+        return "show_events", int(match.group(1))
+
+    # -----------------------------
     # ➤ Помощ
     # -----------------------------
     if user_input.lower() in ["помощ", "help"]:
@@ -202,6 +255,28 @@ def handle_intent(intent, param):
     if intent == "generate_schedule":
         return generate_schedule_service(*param)
 
+    if intent == "show_round":
+        round_no, league_name, season = param
+        return show_round_schedule(league_name, season, round_no)
+
+    if intent == "record_score":
+        home_club, away_club, home_goals, away_goals = param
+        return record_match_score(home_club, away_club, home_goals, away_goals)
+
+    if intent == "add_goal":
+        player_name, club_name, minute = param
+        return add_goal(player_name, club_name, minute)
+
+    if intent == "select_match":
+        return set_current_match(param)
+
+    if intent == "add_card":
+        player_name, club_name, card_type, minute = param
+        return add_card(player_name, club_name, card_type, minute)
+
+    if intent == "show_events":
+        return show_match_events(param)
+
     if intent == "help":
         return (
             "📋 Достъпни команди:\n"
@@ -223,6 +298,13 @@ def handle_intent(intent, param):
             "- премахни отбор <клуб> от лига <име> <сезон>\n"
             "- покажи отбори в лига <име> <сезон>\n"
             "- генерирай програма <име> <сезон>\n"
+            "--- Мачове ---\n"
+            "- покажи кръг <N> <лига> <сезон>\n"
+            "- резултат <Домакин>-<Гост> <X>:<Y> запиши\n"
+            "- избери мач <match_id>\n"
+            "- гол <Играч> <Отбор> <минута> минута\n"
+            "- картон <Играч> <Отбор> <Y/R> <минута>\n"
+            "- покажи събития [или <match_id>]\n"
             "--- Система ---\n"
             "- помощ / help\n"
             "- изход / exit"

@@ -58,8 +58,35 @@ CREATE TABLE IF NOT EXISTS matches (
     match_date TEXT,
     home_goals INTEGER,
     away_goals INTEGER,
+    status TEXT DEFAULT 'scheduled' CHECK (status IN ('scheduled', 'played')),
     FOREIGN KEY (league_id) REFERENCES leagues(id) ON DELETE CASCADE,
     FOREIGN KEY (home_club_id) REFERENCES clubs(id),
     FOREIGN KEY (away_club_id) REFERENCES clubs(id),
     CHECK (home_club_id != away_club_id)
+);
+
+CREATE TABLE IF NOT EXISTS goals (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    match_id INTEGER NOT NULL,
+    player_id INTEGER NOT NULL,
+    club_id INTEGER NOT NULL,
+    minute INTEGER NOT NULL CHECK (minute >= 1 AND minute <= 120),
+    is_own_goal INTEGER DEFAULT 0 CHECK (is_own_goal IN (0, 1)),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (match_id) REFERENCES matches(id) ON DELETE CASCADE,
+    FOREIGN KEY (player_id) REFERENCES players(id),
+    FOREIGN KEY (club_id) REFERENCES clubs(id)
+);
+
+CREATE TABLE IF NOT EXISTS cards (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    match_id INTEGER NOT NULL,
+    player_id INTEGER NOT NULL,
+    club_id INTEGER NOT NULL,
+    minute INTEGER NOT NULL CHECK (minute >= 1 AND minute <= 120),
+    card_type TEXT NOT NULL CHECK (card_type IN ('Y', 'R')),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (match_id) REFERENCES matches(id) ON DELETE CASCADE,
+    FOREIGN KEY (player_id) REFERENCES players(id),
+    FOREIGN KEY (club_id) REFERENCES clubs(id)
 );
