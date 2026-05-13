@@ -9,6 +9,7 @@ from services.leagues_service import (
 from services.matches_service import (
     show_round_schedule, record_match_score, add_goal, add_card, set_current_match, show_match_events
 )
+from services.standings_service import calculate_standings, format_standings_compact
 
 
 def parse_command(user_input):
@@ -200,6 +201,16 @@ def parse_command(user_input):
         return "show_events", int(match.group(1))
 
     # -----------------------------
+    # ➤ Покажи класиране
+    # Формат: покажи класиране <лига> <сезон>
+    # Пример: покажи класиране Първа лига 2025/2026
+    # Сезонът има формат YYYY/YYYY, така че е лесно да се разпознае
+    # -----------------------------
+    match = re.match(r"покажи класиране (.+?)\s+(\d{4}/\d{4})$", user_input, re.IGNORECASE)
+    if match:
+        return "show_standings", (match.group(1), match.group(2))
+
+    # -----------------------------
     # ➤ Помощ
     # -----------------------------
     if user_input.lower() in ["помощ", "help"]:
@@ -277,6 +288,15 @@ def handle_intent(intent, param):
     if intent == "show_events":
         return show_match_events(param)
 
+    if intent == "show_standings":
+        league_name, season = param
+        result = calculate_standings(league_name, season)
+        if result['success']:
+            standings_text = format_standings_compact(result)
+            return standings_text
+        else:
+            return result['message']
+
     if intent == "help":
         return (
             "📋 Достъпни команди:\n"
@@ -305,6 +325,8 @@ def handle_intent(intent, param):
             "- гол <Играч> <Отбор> <минута> минута\n"
             "- картон <Играч> <Отбор> <Y/R> <минута>\n"
             "- покажи събития [или <match_id>]\n"
+            "--- Класиране ---\n"
+            "- покажи класиране <лига> <сезон>\n"
             "--- Система ---\n"
             "- помощ / help\n"
             "- изход / exit"

@@ -443,3 +443,172 @@
 --- Система ---
 - помощ / help
 - изход / exit
+2026-05-13 16:20:20.959835 | помощ | help | OK | 📋 Достъпни команди:
+--- Клубове ---
+- добави клуб <име>
+- покажи всички клубове
+- изтрий клуб <име>
+--- Играчи ---
+- добави играч <име> в <клуб> позиция <GK|DF|MF|FW> номер <номер>
+- покажи играчи на <клуб>
+- смени номер на <име> на <номер>
+- изтрий играч <име>
+--- Трансфери ---
+- трансфер <име играч> от <клуб> в <клуб> <дата YYYY-MM-DD>
+- покажи трансфери на <име играч или клуб>
+--- Лиги ---
+- създай лига <име> <сезон>
+- добави отбор <клуб> в лига <име> <сезон>
+- премахни отбор <клуб> от лига <име> <сезон>
+- покажи отбори в лига <име> <сезон>
+- генерирай програма <име> <сезон>
+--- Мачове ---
+- покажи кръг <N> <лига> <сезон>
+- резултат <Домакин>-<Гост> <X>:<Y> запиши
+- избери мач <match_id>
+- гол <Играч> <Отбор> <минута> минута
+- картон <Играч> <Отбор> <Y/R> <минута>
+- покажи събития [или <match_id>]
+--- Система ---
+- помощ / help
+- изход / exit
+2026-05-13 16:36:46.003844 | помощ | help | OK | 📋 Достъпни команди:
+--- Клубове ---
+- добави клуб <име>
+- покажи всички клубове
+- изтрий клуб <име>
+--- Играчи ---
+- добави играч <име> в <клуб> позиция <GK|DF|MF|FW> номер <номер>
+- покажи играчи на <клуб>
+- смени номер на <име> на <номер>
+- изтрий играч <име>
+--- Трансфери ---
+- трансфер <име играч> от <клуб> в <клуб> <дата YYYY-MM-DD>
+- покажи трансфери на <име играч или клуб>
+--- Лиги ---
+- създай лига <име> <сезон>
+- добави отбор <клуб> в лига <име> <сезон>
+- премахни отбор <клуб> от лига <име> <сезон>
+- покажи отбори в лига <име> <сезон>
+- генерирай програма <име> <сезон>
+--- Мачове ---
+- покажи кръг <N> <лига> <сезон>
+- резултат <Домакин>-<Гост> <X>:<Y> запиши
+- избери мач <match_id>
+- гол <Играч> <Отбор> <минута> минута
+- картон <Играч> <Отбор> <Y/R> <минута>
+- покажи събития [или <match_id>]
+--- Класиране ---
+- покажи класиране <лига> <сезон>
+--- Система ---
+- помощ / help
+- изход / exit
+[2026-05-13 16:38:22] ERROR: show_standings Първа лига 2025/2026 | ❌ Лигата 'Първа лига' сезон '2025/2026' не съществува.
+2026-05-13 16:38:22.284529 | Покажи класиране Първа лига 2025/2026 | show_standings | ERROR | ❌ Лигата 'Първа лига' сезон '2025/2026' не съществува.
+2026-05-13 16:39:05.113532 | покажи всички клубове | list_clubs | OK | 📋 Списък с клубове:
+- Arsenal
+- Liverpool
+- Chelsea
+- Man United
+- TeamA
+- TeamB
+- TeamC
+- TeamD
+- Club1
+- Club2
+- Club3
+
+2026-05-13 16:39:31.532354 | Добави лига Premier League сезон 2025/2026 | None | OK | ❓ Не разбирам командата.
+2026-05-13 16:41:12.684665 | създай лига PremierLeague 2025/2026 | create_league | OK | ✅ Лигата 'PremierLeague' за сезон '2025/2026' е създадена с ID 15.
+2026-05-13 16:41:20.147211 | добави отбор Arsenal в лига PremierLeague 2025/2026 | add_team_to_league | OK | ✅ Клубът 'Arsenal' е добавен в лигата 'PremierLeague' 2025/2026.
+2026-05-13 16:41:26.044864 | добави отбор Liverpool в лига PremierLeague 2025/2026 | add_team_to_league | OK | ✅ Клубът 'Liverpool' е добавен в лигата 'PremierLeague' 2025/2026.
+2026-05-13 16:41:31.397733 | добави отбор Chelsea в лига PremierLeague 2025/2026 | add_team_to_league | OK | ✅ Клубът 'Chelsea' е добавен в лигата 'PremierLeague' 2025/2026.
+2026-05-13 16:41:36.512001 | добави отбор Man United в лига PremierLeague 2025/2026 | add_team_to_league | OK | ✅ Клубът 'Man United' е добавен в лигата 'PremierLeague' 2025/2026.
+2026-05-13 16:41:41.308610 | добави отбор TeamA в лига PremierLeague 2025/2026 | add_team_to_league | OK | ✅ Клубът 'TeamA' е добавен в лигата 'PremierLeague' 2025/2026.
+2026-05-13 16:41:45.978524 | добави отбор TeamB в лига PremierLeague 2025/2026 | add_team_to_league | OK | ✅ Клубът 'TeamB' е добавен в лигата 'PremierLeague' 2025/2026.
+2026-05-13 16:41:50.155150 | добави отбор TeamC в лига PremierLeague 2025/2026 | add_team_to_league | OK | ✅ Клубът 'TeamC' е добавен в лигата 'PremierLeague' 2025/2026.
+2026-05-13 16:41:57.270852 | добави отбор TeamD в лига PremierLeague 2025/2026 | add_team_to_league | OK | ✅ Клубът 'TeamD' е добавен в лигата 'PremierLeague' 2025/2026.
+2026-05-13 16:42:02.158319 | добави отбор Club1 в лига PremierLeague 2025/2026 | add_team_to_league | OK | ✅ Клубът 'Club1' е добавен в лигата 'PremierLeague' 2025/2026.
+2026-05-13 16:42:06.798153 | добави отбор Club2 в лига PremierLeague 2025/2026 | add_team_to_league | OK | ✅ Клубът 'Club2' е добавен в лигата 'PremierLeague' 2025/2026.
+2026-05-13 16:42:11.150182 | добави отбор Club3 в лига PremierLeague 2025/2026 | add_team_to_league | OK | ✅ Клубът 'Club3' е добавен в лигата 'PremierLeague' 2025/2026.
+2026-05-13 16:42:18.664900 | покажи отбори в лига PremierLeague 2025/2026 | show_teams_in_league | OK | 📋 Отбори в лигата 'PremierLeague' 2025/2026:
+- 1: Arsenal
+- 2: Liverpool
+- 3: Chelsea
+- 4: Man United
+- 21: TeamA
+- 22: TeamB
+- 23: TeamC
+- 24: TeamD
+- 45: Club1
+- 46: Club2
+- 47: Club3
+2026-05-13 16:42:26.213078 | генерирай програма PremierLeague 2025/2026 | generate_schedule | OK | ✅ Програма за 'PremierLeague' 2025/2026 е генерирана.
+Кръгове: 11
+Общо мачове: 55
+Примерен 1-ви кръг:
+- Liverpool vs Club3
+- Chelsea vs Club2
+- Man United vs Club1
+- TeamA vs TeamD
+- TeamB vs TeamC
+2026-05-13 16:42:38.824285 | покажи кръг 1 PremierLeague 2025/2026 | show_round | OK | 📋 Кръг 1 - PremierLeague 2025/2026:
+- #18: Liverpool - Club3
+- #19: Chelsea - Club2
+- #20: Man United - Club1
+- #21: TeamA - TeamD
+- #22: TeamB - TeamC
+2026-05-13 16:42:48.738860 | резултат Arsenal-Liverpool 2:1 запиши | record_score | ERROR | ❌ Има няколко мача между 'Arsenal' и 'Liverpool'. Посочи лига/кръг.
+2026-05-13 16:42:57.705405 | резултат Chelsea-Man United 0:0 запиши | record_score | OK | ✅ Записано: Chelsea–Man United 0:0 (мач #37)
+2026-05-13 16:43:03.124726 | резултат TeamA-TeamB 3:0 запиши | record_score | OK | ✅ Записано: TeamA–TeamB 3:0 (мач #27)
+2026-05-13 16:43:15.492415 | резултат TeamC-TeamD 1:2 запиши | record_score | OK | ✅ Записано: TeamC–TeamD 1:2 (мач #72)
+2026-05-13 16:43:20.693440 | резултат Club1-Club2 4:4 запиши | record_score | OK | ✅ Записано: Club1–Club2 4:4 (мач #62)
+[2026-05-13 16:43:29] INPUT: show_standings PremierLeague 2025/2026 | INTENT: show_standings | PARAMS: PremierLeague 2025/2026 | STATUS: OK | RESULT: Standings calculated for 11 teams
+2026-05-13 16:43:29.818319 | покажи класиране PremierLeague 2025/2026 | show_standings | OK | 📊 Класиране - PremierLeague 2025/2026:
+
+1. TeamA                1  1  0  0  3:0   +3  3
+2. TeamD                1  1  0  0  2:1   +1  3
+3. Club1                1  0  1  0  4:4   +0  1
+4. Club2                1  0  1  0  4:4   +0  1
+5. Chelsea              1  0  1  0  0:0   +0  1
+6. Man United           1  0  1  0  0:0   +0  1
+7. Arsenal              0  0  0  0  0:0   +0  0
+8. Club3                0  0  0  0  0:0   +0  0
+9. Liverpool            0  0  0  0  0:0   +0  0
+10. TeamC                1  0  0  1  1:2   -1  0
+11. TeamB                1  0  0  1  0:3   -3  0
+2026-05-13 16:44:23.226270 | резултат Liverpool-Arsenal 1:2 запиши | record_score | ERROR | ❌ Няма мач между 'Liverpool' и 'Arsenal'.
+[2026-05-13 16:44:31] INPUT: show_standings PremierLeague 2025/2026 | INTENT: show_standings | PARAMS: PremierLeague 2025/2026 | STATUS: OK | RESULT: Standings calculated for 11 teams
+2026-05-13 16:44:31.167829 | покажи класиране PremierLeague 2025/2026 | show_standings | OK | 📊 Класиране - PremierLeague 2025/2026:
+
+1. TeamA                1  1  0  0  3:0   +3  3
+2. TeamD                1  1  0  0  2:1   +1  3
+3. Club1                1  0  1  0  4:4   +0  1
+4. Club2                1  0  1  0  4:4   +0  1
+5. Chelsea              1  0  1  0  0:0   +0  1
+6. Man United           1  0  1  0  0:0   +0  1
+7. Arsenal              0  0  0  0  0:0   +0  0
+8. Club3                0  0  0  0  0:0   +0  0
+9. Liverpool            0  0  0  0  0:0   +0  0
+10. TeamC                1  0  0  1  1:2   -1  0
+11. TeamB                1  0  0  1  0:3   -3  0
+2026-05-13 16:44:42.116674 | резултат Arsenal-TeamA 1:5 запиши | record_score | OK | ✅ Записано: Arsenal–TeamA 1:5 (мач #53)
+2026-05-13 16:44:46.428583 | резултат Liverpool-Club3 2:0 запиши | record_score | OK | ✅ Записано: Liverpool–Club3 2:0 (мач #18)
+2026-05-13 16:45:07.974710 | избери мач 1 | select_match | OK | ✅ Текущият мач е зададен на #1: Arsenal vs Liverpool
+2026-05-13 16:45:14.575635 | гол Saka Arsenal 23 минута | add_goal | ERROR | ❌ Играч 'Saka' не е намерен в клуб 'Arsenal'.
+2026-05-13 16:45:22.016850 | покажи събития | show_events | OK | 📋 Събития за мач #1: Arsenal vs Liverpool
+Няма събития.
+[2026-05-13 16:45:30] INPUT: show_standings PremierLeague 2025/2026 | INTENT: show_standings | PARAMS: PremierLeague 2025/2026 | STATUS: OK | RESULT: Standings calculated for 11 teams
+2026-05-13 16:45:30.488100 | покажи класиране PremierLeague 2025/2026 | show_standings | OK | 📊 Класиране - PremierLeague 2025/2026:
+
+1. TeamA                2  2  0  0  8:1   +7  6
+2. Liverpool            1  1  0  0  2:0   +2  3
+3. TeamD                1  1  0  0  2:1   +1  3
+4. Club1                1  0  1  0  4:4   +0  1
+5. Club2                1  0  1  0  4:4   +0  1
+6. Chelsea              1  0  1  0  0:0   +0  1
+7. Man United           1  0  1  0  0:0   +0  1
+8. TeamC                1  0  0  1  1:2   -1  0
+9. Club3                1  0  0  1  0:2   -2  0
+10. TeamB                1  0  0  1  0:3   -3  0
+11. Arsenal              1  0  0  1  1:5   -4  0

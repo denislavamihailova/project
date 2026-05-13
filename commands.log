@@ -58,3 +58,28 @@
 - Real Madrid
 
 2026-03-25 17:10:32.091729 | exit | ⚡ Изход от чатбота. До скоро!
+[2026-05-13 16:29:02] ERROR: test_standings | CRITICAL ERROR: 'NoneType' object is not iterable
+[2026-05-13 16:29:29] INPUT: show_standings Test League 2025/2026 | INTENT: show_standings | PARAMS: Test League 2025/2026 | STATUS: OK | RESULT: Standings calculated for 4 teams
+[2026-05-13 16:29:29] INPUT: test_scenario_1 | INTENT: show_standings | PARAMS: None | STATUS: OK | RESULT: TEST 1 COMPLETED
+[2026-05-13 16:29:29] INPUT: show_standings Test League 2025/2026 | INTENT: show_standings | PARAMS: Test League 2025/2026 | STATUS: OK | RESULT: Standings calculated for 4 teams
+[2026-05-13 16:29:29] INPUT: test_scenario_2 | INTENT: show_standings | PARAMS: None | STATUS: OK | RESULT: TEST 2 COMPLETED
+[2026-05-13 16:29:29] ERROR: show_standings Fake League 2025/2026 | ❌ Лигата 'Fake League' сезон '2025/2026' не съществува.
+[2026-05-13 16:29:29] INPUT: test_scenario_3 | INTENT: show_standings | PARAMS: None | STATUS: OK | RESULT: TEST 3 COMPLETED
+[2026-05-13 16:30:35] INPUT: show_standings Test League 2025/2026 | INTENT: show_standings | PARAMS: Test League 2025/2026 | STATUS: OK | RESULT: Standings calculated for 4 teams
+[2026-05-13 16:31:43] INPUT: show_standings League1 2025/2026 | INTENT: show_standings | PARAMS: League1 2025/2026 | STATUS: OK | RESULT: Standings calculated for 4 teams
+[2026-05-13 16:31:43] INPUT: show_standings League2 2025/2026 | INTENT: show_standings | PARAMS: League2 2025/2026 | STATUS: OK | RESULT: Standings calculated for 4 teams
+[2026-05-13 16:31:43] INPUT: show_standings League3 2025/2026 | INTENT: show_standings | PARAMS: League3 2025/2026 | STATUS: OK | RESULT: Standings calculated for 4 teams
+[2026-05-13 16:31:43] INPUT: show_standings League4 2025/2026 | INTENT: show_standings | PARAMS: League4 2025/2026 | STATUS: OK | RESULT: Standings calculated for 4 teams
+[2026-05-13 16:31:43] INPUT: show_standings League5 2025/2026 | INTENT: show_standings | PARAMS: League5 2025/2026 | STATUS: OK | RESULT: Standings calculated for 4 teams
+[2026-05-13 16:31:43] ERROR: show_standings NonExistent 2025/2026 | ❌ Лигата 'NonExistent' сезон '2025/2026' не съществува.
+[2026-05-13 16:31:43] ERROR: show_standings EmptyLeague 2025/2026 | ❌ Лигата 'EmptyLeague' 2025/2026 няма добавени отбори.
+[2026-05-13 16:31:43] INPUT: test_standings | INTENT: show_standings | PARAMS: TestLeague 2025/2026 | STATUS: OK | RESULT: Test completed
+[2026-05-13 16:32:20] INPUT: show_standings League1 2025/2026 | INTENT: show_standings | PARAMS: League1 2025/2026 | STATUS: OK | RESULT: Standings calculated for 4 teams
+[2026-05-13 16:32:20] INPUT: show_standings League2 2025/2026 | INTENT: show_standings | PARAMS: League2 2025/2026 | STATUS: OK | RESULT: Standings calculated for 4 teams
+[2026-05-13 16:32:20] INPUT: show_standings League3 2025/2026 | INTENT: show_standings | PARAMS: League3 2025/2026 | STATUS: OK | RESULT: Standings calculated for 4 teams
+[2026-05-13 16:32:20] INPUT: show_standings League4 2025/2026 | INTENT: show_standings | PARAMS: League4 2025/2026 | STATUS: OK | RESULT: Standings calculated for 4 teams
+[2026-05-13 16:32:20] INPUT: show_standings League5 2025/2026 | INTENT: show_standings | PARAMS: League5 2025/2026 | STATUS: OK | RESULT: Standings calculated for 4 teams
+[2026-05-13 16:32:20] ERROR: show_standings NonExistent 2025/2026 | ❌ Лигата 'NonExistent' сезон '2025/2026' не съществува.
+[2026-05-13 16:32:20] ERROR: show_standings EmptyLeague 2025/2026 | ❌ Лигата 'EmptyLeague' 2025/2026 няма добавени отбори.
+[2026-05-13 16:32:20] INPUT: test_standings | INTENT: show_standings | PARAMS: TestLeague 2025/2026 | STATUS: OK | RESULT: Test completed
+[2026-05-13 16:34:09] INPUT: show_standings FinalCheck 2025/2026 | INTENT: show_standings | PARAMS: FinalCheck 2025/2026 | STATUS: OK | RESULT: Standings calculated for 3 teams
